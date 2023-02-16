@@ -1,0 +1,12 @@
+var fs = require("fs");
+
+console.log("program started");
+var data = fs.readFileSync('example.txt');
+console.log(data.toString());
+
+for (var i=0; i < 15; i++){
+    console.log("It keeps going!!");
+}
+
+
+console.log("program ended");
