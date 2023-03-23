@@ -4,7 +4,7 @@ const mongodb = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/guestbook';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:3000/guestbook';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,7 +32,7 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-// tallentaa tietoa ja tekee siitä luoksepäästävän
+// tallentaa tietoa ja tekee siitä luokse päästävän
 const { connectToDb } = require('./db');
 
 app.post('/add', async (req, res) => {
