@@ -13,6 +13,8 @@ app.post('/add', (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
 
+// MongoDB PITÄISI tässä tallentaa nyt tietoja
+
   MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true }, (err, client) => {
   if (err) {
     console.error(err);
@@ -37,8 +39,6 @@ app.post('/add', (req, res) => {
     res.redirect('/');
   });
 });
-
-  // TODO: save name and message to a database or file
 
   res.redirect('/');
 });
