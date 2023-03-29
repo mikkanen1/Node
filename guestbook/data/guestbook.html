@@ -20,15 +20,5 @@
       <button type="submit">Lähetä</button>
     </form>
     <h2>Entries:</h2>
-    <ul>
-      <% for (const entry of entries) { %>
-        <li>
-          <strong><%= entry.name %>:</strong>
-          <%= entry.message %>
-          <br>
-          <small><%= entry.timestamp %></small>
-        </li>
-      <% } %>
-    </ul>
   </body>
 </html>
