@@ -16,8 +16,6 @@ app.post('/add', (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
 
-  // TODO: save name and message to a database or file
-
   // Load existing data from JSON file
   let data = [];
   try {
