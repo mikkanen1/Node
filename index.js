@@ -1,8 +1,8 @@
 const fs = require('fs');
-const dataPath = __dirname + '/data/guestbook.json';
 
 const express = require('express');
 const app = express();
+
 const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
 app.post('/add', (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
+
+  // TODO: save name and message to a database or file
 
   // Load existing data from JSON file
   let data = [];
@@ -33,11 +35,9 @@ app.post('/add', (req, res) => {
 
   res.redirect('/');
 });
-  // TODO: save name and message to a database or file
-
-  res.redirect('/');
-
 
 app.listen(port, () => {
   console.log(`Guestbook app listening at http://localhost:${port}`);
 });
+
+const dataPath = __dirname + '/data/guestbook.json';
