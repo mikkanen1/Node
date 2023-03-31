@@ -1,3 +1,6 @@
+const fs = require('fs');
+const dataPath = __dirname + '/data/guestbook.json';
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -13,35 +16,27 @@ app.post('/add', (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
 
-// MongoDB PITÄISI tässä tallentaa nyt tietoja
-
-  MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true }, (err, client) => {
-  if (err) {
-    console.error(err);
-    res.sendStatus(500);
-    return;
+  // Load existing data from JSON file
+  let data = [];
+  try {
+    const rawData = fs.readFileSync(dataPath);
+    data = JSON.parse(rawData);
+  } catch (error) {
+    console.error(error);
   }
 
-  const db = client.db('guestbook');
+  // Add new guestbook entry to data
+  data.push({ name, message });
 
-  db.collection('entries').insertOne({
-    name: name,
-    message: message,
-    timestamp: new Date()
-  }, (err, result) => {
-    if (err) {
-      console.error(err);
-      res.sendStatus(500);
-      return;
-    }
-
-    console.log('Saved entry to MongoDB:', result.ops[0]);
-    res.redirect('/');
-  });
-});
+  // Save data to JSON file
+  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 
   res.redirect('/');
 });
+  // TODO: save name and message to a database or file
+
+  res.redirect('/');
+
 
 app.listen(port, () => {
   console.log(`Guestbook app listening at http://localhost:${port}`);
