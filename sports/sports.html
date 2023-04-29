@@ -7,5 +7,25 @@
   </head>
   <body>
     <script type="text/javascript" src="sports.js"></script>
-    <h1>Hello world</h1>
+    <h1>Tervetuloa eksyneen urheilijan sivulle</h1>
+    <p>Tällä sivulla autamme urheilijoita löytämään uuden seuran tai harrastuksen</p>
+    <form method="POST" action="/add">
+        <label for="name">Nimi:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="name">Kaupunki:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <br>
+        <label for="message">Urheilu kokemus ja taito-taso</label>
+        <br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+        <br>
+        <br>
+        <label for="message">Ala tai sarja missä haluat urheilla, voit kertoa useampia ja löydämme sopivan sarjan</label>
+        <br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Lähetä</button>
+      </form>
+
   </body>
