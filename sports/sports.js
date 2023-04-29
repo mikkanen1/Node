@@ -34,4 +34,53 @@ mongoose.connect('mongodb://localhost/mydatabase', {
   const User = mongoose.model('User', userSchema);
   
   module.exports = User;
+
+  //Creating a new user
+  const newUser = new User({
+    name: 'Johny boy',
+    sport: 'hockey',
+    league: 'pro',
+  });
   
+  newUser.save()
+    .then((savedUser) => {
+      console.log('User created:', savedUser);
+    })
+    .catch((error) => {
+      console.error('Failed to create user:', error);
+    });
+  
+    //Fetching users
+    User.find()
+  .then((users) => {
+    console.log('Users:', users);
+  })
+  .catch((error) => {
+    console.error('Failed to fetch users:', error);
+  });
+//Updating a user
+User.findByIdAndUpdate(userId, { age: 30 }, { new: true })
+  .then((updatedUser) => {
+    console.log('User updated:', updatedUser);
+  })
+  .catch((error) => {
+    console.error('Failed to update user:', error);
+  });
+
+//Deleting a user
+User.findByIdAndDelete(userId)
+  .then(() => {
+    console.log('User deleted');
+  })
+  .catch((error) => {
+    console.error('Failed to delete user:', error);
+  });
+
+  //Close the MongoDB connection
+  mongoose.connection.close()
+  .then(() => {
+    console.log('Disconnected from MongoDB');
+  })
+  .catch((error) => {
+    console.error('Failed to disconnect from MongoDB', error);
+  });
