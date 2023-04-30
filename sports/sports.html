@@ -7,21 +7,23 @@
   </head>
   <body>
     <script type="text/javascript" src="sports.js"></script>
-    <h1>Tervetuloa eksyneen urheilijan sivulle</h1>
-    <p>Tällä sivulla autamme urheilijoita löytämään uuden seuran tai harrastuksen</p>
+    <h1>Tervetuloa eksyneen elokuva kriitikon sivulle</h1>
+    <p>Tällä sivulla kuka tahansa voi palauttaa mielipiteensä elokuvista</p>
     <form method="POST" action="/add">
-        <label for="name">Nimi:</label>
+        <label for="name">Elokuvan Nimi:</label>
         <input type="text" id="name" name="name" required>
-        <label for="name">Kaupunki:</label>
+        <label for="name">Ohjaaja</label>
+        <input type="text" id="name" name="name" required>
+        <label for="name">Julkaisuvuosi</label>
         <input type="text" id="name" name="name" required>
         <br>
         <br>
-        <label for="message">Urheilu kokemus ja taito-taso</label>
+        <label for="message">Mielipide elokuvasta</label>
         <br>
         <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         <br>
         <br>
-        <label for="message">Ala tai sarja missä haluat urheilla, voit kertoa useampia ja löydämme sopivan sarjan</label>
+        <label for="message">Oma näkemys elokuvan juonesta (koeta välttää spoilereita)</label>
         <br>
         <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         <br>
