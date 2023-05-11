@@ -39,3 +39,31 @@ app.listen(port, () => {
 });
 
 const dataPath = __dirname + '/guestbook.json';
+
+// In server.js
+app.get('/guestbook', async (req, res) => {
+  const db = await connectToDb();
+  const entries = await db.collection('guestbook').find().toArray();
+
+  let html = `
+    <html>
+      <head>
+        <title>Guestbook</title>
+      </head>
+      <body>
+        <h1>Guestbook</h1>
+        <ul>
+  `;
+
+  entries.forEach((entry) => {
+    html += `<li><strong>${entry.name}:</strong> ${entry.message}</li>`;
+  });
+
+  html += `
+        </ul>
+      </body>
+    </html>
+  `;
+
+  res.send(html);
+});
