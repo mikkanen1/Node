@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/guestbook.html');
+  res.sendFile(__dirname + '/guestbook.html');
 });
 
 app.post('/add', (req, res) => {
@@ -38,4 +38,4 @@ app.listen(port, () => {
   console.log(`Guestbook app listening at http://localhost:${port}`);
 });
 
-const dataPath = __dirname + '/data/guestbook.json';
+const dataPath = __dirname + '/guestbook.json';
