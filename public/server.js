@@ -1,4 +1,14 @@
 // In server.js
+const { connectToDb } = require('./db');
+
+app.post('/add', async (req, res) => {
+  const { name, message } = req.body;
+  const db = await connectToDb();
+  await db.collection('guestbook').insertOne({ name, message });
+  res.redirect('/');
+});
+
+// In server.js
 app.get('/guestbook', async (req, res) => {
     const db = await connectToDb();
     const entries = await db.collection('guestbook').find().toArray();
