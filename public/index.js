@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/guestbook.html');
+  res.sendFile(__dirname + '\\guestbook.html');
 });
 
 app.post('/add', (req, res) => {
