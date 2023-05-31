@@ -9,7 +9,8 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>I used to be an african warlord until I got desperate enough to go to UK to safety, my personal advise: Don´t do that, I somehow get stabbed more here than in Kongo</p>
+        <p>I used to be an African warlord until I couldnt take it anymore, so I came to UK to safety.
+           My personal advise: Don't do that, I somehow get stapped more here than back in Africa.</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
